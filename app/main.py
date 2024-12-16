@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Form, UploadFile, File, Request, HTTPException
+from fastapi import FastAPI, Form, UploadFile, File, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -19,9 +19,6 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 UPLOAD_FOLDER = "data/videos/"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# Allowed video MIME types/extensions
-ALLOWED_VIDEO_EXTENSIONS = ["mp4", "mov", "avi", "mkv"]
-
 # Route for the favicon.ico
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
@@ -38,11 +35,6 @@ async def home(request: Request):
 async def process_video(request: Request, video: UploadFile = File(...), prompt: str = Form(...)):
     """Handle video upload and text prompt input."""
     try:
-        # Check video file extension
-        file_extension = video.filename.split(".")[-1].lower()
-        if file_extension not in ALLOWED_VIDEO_EXTENSIONS:
-            raise HTTPException(status_code=400, detail="Invalid video format. Allowed formats: mp4, mov, avi, mkv.")
-
         # Save the uploaded video
         video_path = os.path.join(UPLOAD_FOLDER, video.filename)
         with open(video_path, "wb") as f:
