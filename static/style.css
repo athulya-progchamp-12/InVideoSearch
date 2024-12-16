@@ -1,0 +1,159 @@
+/* Global reset for consistent styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #6e7dff, #55c3d8);
+    /* Aesthetic gradient background */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Main container for centering content */
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    /* Soft rounded corners */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    /* More prominent shadow for depth */
+}
+
+/* Heading styling */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1428e0;
+    /* White color for heading */
+    margin-bottom: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Input field styling */
+input[type="file"],
+input[type="text"],
+button {
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+/* Hover effect for input and button */
+input[type="file"]:hover,
+input[type="text"]:hover,
+button:hover {
+    background-color: #e0f7fa;
+    /* Light blue background on hover */
+    border: 1px solid #00bcd4;
+    /* Cyan border on hover */
+}
+
+/* Button Styling */
+button {
+    background-color: #00bcd4;
+    /* Cyan button color */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 15px;
+    font-size: 1.2rem;
+}
+
+button:hover {
+    background-color: #0097a7;
+    /* Darker cyan for hover */
+    transform: translateY(-3px);
+    /* Slight upward movement on hover */
+}
+
+/* Results Container */
+.result-container {
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.result-container p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Styled Links */
+a {
+    text-decoration: none;
+    color: #00bcd4;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0097a7;
+    text-decoration: underline;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    input[type="file"],
+    input[type="text"],
+    button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    input[type="file"],
+    input[type="text"],
+    button {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="margin-top: 20px; font-weight: bold;">InVideo Search</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="color: rgb(14, 3, 82); margin-bottom: 20px;">InVideo Search</h1>
+
+        <!-- Error message display -->
+        {% if error %}
+        <div style="color: red; margin-bottom: 20px;">
+            <strong>{{ error }}</strong>
+        </div>
+        {% endif %}
+
+        <form action="/process" method="post" enctype="multipart/form-data">
+            <label for="video">Upload Video:</label>
+            <input type="file" id="video" name="video" accept="video/*" required><br><br>
+
+            <label for="prompt">Enter a Text Prompt:</label>
+            <input type="text" id="prompt" name="prompt" placeholder="Search for..." value="{{ prompt }}"
+                required><br><br>
+
+            <button type="submit">Search</button>
+        </form>
+
+        {% if video_uploaded %}
+        <div style="margin-top: 20px; font-weight: bold;">
+            Video uploaded successfully! You can now search the video.
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
